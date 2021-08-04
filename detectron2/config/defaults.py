@@ -111,7 +111,7 @@ _C.DATASETS.PRECOMPUTED_PROPOSAL_TOPK_TEST = 1000
 # -----------------------------------------------------------------------------
 _C.DATALOADER = CN()
 # Number of data loading threads
-_C.DATALOADER.NUM_WORKERS = 4
+_C.DATALOADER.NUM_WORKERS = 1
 # If True, each batch should contain only images for which the aspect ratio
 # is compatible. This groups portrait images together, and landscape images
 # are not batched with portrait images.
@@ -539,7 +539,7 @@ _C.SOLVER.CHECKPOINT_PERIOD = 5000
 # If we have 16 GPUs and IMS_PER_BATCH = 32,
 # each GPU will see 2 images per batch.
 # May be adjusted automatically if REFERENCE_WORLD_SIZE is set.
-_C.SOLVER.IMS_PER_BATCH = 16
+_C.SOLVER.IMS_PER_BATCH = 1
 
 # The reference number of workers (GPUs) this config is meant to train with.
 # It takes no effect when set to 0.
@@ -547,7 +547,7 @@ _C.SOLVER.IMS_PER_BATCH = 16
 # per-worker batch size, and then scale the other related configs (total batch size,
 # learning rate, etc) to match the per-worker batch size.
 # See documentation of `DefaultTrainer.auto_scale_workers` for details:
-_C.SOLVER.REFERENCE_WORLD_SIZE = 0
+_C.SOLVER.REFERENCE_WORLD_SIZE = 1
 
 # Detectron v1 (and previous detection code) used a 2x higher LR and 0 WD for
 # biases. This is not useful (at least for recent models). You should avoid
